@@ -30,13 +30,16 @@ import DatePicker, {registerLocale} from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import es from "date-fns/locale/es"
 import Logo from '../images/nota.svg';
+import ModalOk from '../components/ModalOk/ModalOk';
 
 registerLocale("es", es);
 
 const Solicitud = () => {
 
+    // Calendario
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
+
 
     return (
         <Container>
@@ -137,6 +140,7 @@ const Solicitud = () => {
                     </ButtonBox>
                     </ButtonGroup>
                 </StyledForm>
+                <ModalOk/>
             </Wrapper>
         </Container>
     )

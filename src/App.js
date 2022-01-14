@@ -16,7 +16,7 @@ function App() {
             <Route path='/simulador' component={Simulador} />
             <Route path='/solicitud' component={Solicitud} />
             <Route path='/cosolicitante' component={CoSolicitante} />       
-            <Route path='/estado' component={Estado} />      
+            <Route path='/estado' component={Estado} />           
           </Switch>
       </Router>
   );
