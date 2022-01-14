@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from "styled-components"
+import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
    display: flex;
@@ -10,8 +11,7 @@ export const Container = styled.div`
    color: #335998;
 `
 export const Wrapper = styled.div`
-    border: 1px solid rgba(1, 87, 154, 0.31);
-    max-width: 300px;
+    max-width: 500px;
     background: #fff;
     padding: 25px 30px;
     border-radius: 25px;
@@ -20,29 +20,37 @@ export const Wrapper = styled.div`
 export const Title = styled.div`
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    padding: 16px 31px;
 `
 export const Nota = styled.img`
-    width: 2rem;
+    width: 8%;
+    margin-right: 20px;
 `
 export const Typography = styled.h1`
-    font-weight: bold;
     font-size: 1.5rem;
+    margin-left: 20px;
 `
-export const BoxButton = styled.div`
-
-` 
+export const GroupButton = styled.div`
+    justify-content: center;
+    
+`
+export const BoxButton = styled(Link)`
+    text-decoration: none;
+`
 export const Button = styled.button`
     background-color: #F9F9F9;
-	border-radius:28px;
+	border-radius: 45px;
 	display:inline-block;
 	cursor: pointer;
 	color:#3579AE;
-	font-family:Arial;
 	font-size:17px;
-	padding:16px 31px;
-	text-decoration:none;
+	padding: 30px 30px;
     border: 1px solid rgba(1, 87, 154, 0.31);
+    width: 100%;
+    margin: 20px 0 12px 0;
+    display: flex;
+    align-items: center;
     &:hover {
         background-color: #3579AE;
         color: #F9F9F9;

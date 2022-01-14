@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import {AiOutlineArrowLeft} from 'react-icons/ai';
+import {AiOutlinePaperClip} from 'react-icons/ai';
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
    display: flex;
@@ -9,9 +12,8 @@ export const Container = styled.div`
    height: 100vh;
    color: #335998;
 `
-
 export const Wrapper = styled.div`
-    max-width: 700px;
+    max-width: 900px;
     background: #fff;
     padding: 25px 30px;
     border-radius: 25px;
@@ -21,7 +23,8 @@ export const Hero = styled.div`
     display: flex;
 `
 export const Title = styled.h2`
-    margin: 20px 0 12px 0;
+    margin: 20px 0 20px 0;
+    margin-left: 20px;
 `
 export const Subtitle = styled.h4`
     margin: 20px 0 12px 0;
@@ -51,6 +54,85 @@ export const InputTag = styled.input`
     padding-left: 15px;
     outline: none;
 `
-export const Submit = styled.button`
-    
+export const Nota = styled.img`
+    width: 2rem;
+`
+export const Route = styled(Link)`
+    width: 30px;
+    margin-top: 25px;
+`
+export const ArrowLeft = styled(AiOutlineArrowLeft)`
+    display: block;
+    fill: #57C1E3;
+    font-size: 20px;
+`
+export const ButtonGroup = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; 
+    margin: 25px 0 25px 0;  
+`
+export const ButtonBox = styled.div`
+    padding: 8px;
+    width: 215px;
+    background: #0C5B9E;
+    border-radius: 35px;
+    position: relative;
+`
+export const InputType = styled.input`
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+`
+export const Text = styled.p`
+    color: #fff;
+    margin-left: 20px;
+    text-align: center;
+    font-size: 12px;
+`
+export const Clip = styled(AiOutlinePaperClip)`
+    font-size: 25px;
+    position: absolute;
+    color: #fff;
+`
+export const WrapperWarranty = styled.div`
+    display: flex;
+    justify-content: center; 
+`
+export const WarrantyBox = styled.div`
+    background: #57C1E3;
+    border-radius: 35px;
+    position: relative;
+    margin-top: 15px;
+`
+export const TextWarranty = styled.span`
+    color: #fff;
+    margin-left: 25px;
+    padding-right: 10px;  
+`
+export const InputWarranty = styled.input`
+    height: 45px;
+    border-radius: 54px;
+    border: 1px solid rgba(1,87,154,0.31);
+    padding-left: 15px;
+    outline: none;
+`
+export const WrapperText = styled.div`
+    display: flex;
+    justify-content: center;
+    margin-top: 15px; 
+`
+export const TextCuento = styled(Link)`
+    color: #57C1E3;
+    text-align: center;
+`
+export const TextButton = styled.p`
+    color: #fff;
+    text-align: center;
 `

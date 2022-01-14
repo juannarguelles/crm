@@ -6,11 +6,12 @@ import {
     Title,
     Nota,
     Button,
-    BoxButton
+    GroupButton,
+    BoxButton,
 } from './styledHome'
-import Img from '../images/nota.svg'
-import { Link } from 'react-router-dom'
-
+import Img from '../images/nota.svg';
+import Calc from '../images/calculadora.svg';
+import Est from '../images/estado.svg';
 
 const home = () => {
     return (
@@ -20,17 +21,26 @@ const home = () => {
                     <Nota src={Img} alt='' />
                     <Typography>¿Qué necesitas?</Typography>
                 </Title>
-                <BoxButton>
-                    <Link to="/simulador">
-                        <Button>Simular el valor de mis garantías</Button>
-                    </Link>
-                    <Link to="/solicitud">
-                        <Button>Generar solicitud de garantía</Button>
-                    </Link>
-                    <Link to="/estado">
-                        <Button>Ver estado de solicitudes</Button>
-                    </Link>
-                </BoxButton>
+                <GroupButton>
+                    <BoxButton to="/simulador">
+                        <Button>
+                            <Nota src={Calc} alt=''/>
+                            Simular el valor de mis garantías
+                        </Button>
+                    </BoxButton>
+                    <BoxButton to="/solicitud">
+                        <Button>
+                            <Nota src={Img} alt=''/>
+                            Generar solicitud de garantía
+                        </Button>
+                    </BoxButton>
+                    <BoxButton to="/estado">
+                        <Button>
+                            <Nota src={Est} alt=''/>
+                            Ver estado de solicitudes
+                        </Button>
+                    </BoxButton>
+                </GroupButton>
             </Wrapper>
         </Container>
     )

@@ -5,6 +5,7 @@ import Home from './pages/home';
 import Simulador from './pages/Simulador';
 import Estado from './pages/Estado';
 import Solicitud from './pages/Solicitud';
+import CoSolicitante from './pages/CoSolicitante';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
           <Switch>
             <Route path='/' exact component={Home} />      
             <Route path='/simulador' component={Simulador} />
-            <Route path='/solicitud' component={Solicitud} />       
+            <Route path='/solicitud' component={Solicitud} />
+            <Route path='/cosolicitante' component={CoSolicitante} />       
             <Route path='/estado' component={Estado} />      
           </Switch>
       </Router>

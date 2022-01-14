@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react'
 import {
     Container,
     Wrapper,
@@ -18,37 +18,22 @@ import {
     InputType,
     Text,
     Clip,
-    WrapperWarranty,
-    WarrantyBox,
-    TextWarranty,
-    InputWarranty,
-    WrapperText,
-    TextCuento,
     TextButton,
 } from './styledSolicitud';
-import DatePicker, {registerLocale} from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-import es from "date-fns/locale/es"
 import Logo from '../images/nota.svg';
 
-registerLocale("es", es);
-
-const Solicitud = () => {
-
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
-
+const CoSolicitante = () => {
     return (
         <Container>
             <Wrapper>
                 <Hero>
-                    <Route to="/">
+                    <Route to="/solicitud">
                         <ArrowLeft/>
                     </Route>
                     <Nota src={Logo} alt=''/>
                     <Title>Generar Solicitud de Garantía</Title>
                 </Hero>
-                    <Subtitle>Datos del inquilino:</Subtitle>
+                    <Subtitle>Datos del CO-SOLICITANTE:</Subtitle>
                 <StyledForm>
                     <UserDetails>
                         <InputBox>
@@ -72,34 +57,8 @@ const Solicitud = () => {
                             <InputTag type='text' placeholder=''></InputTag>
                         </InputBox>
                         <InputBox>
-                            <Details>Domicilio de alquiler:</Details>
+                            <Details>Domicilio:</Details>
                             <InputTag type='text' placeholder=''></InputTag>
-                        </InputBox>
-                        <InputBox>
-                            <Details>Fecha de inicio del contrato:</Details>
-                            <DatePicker
-                                selected={startDate}
-                                onChange={(date) => setStartDate(date)}
-                                dateFormat="dd/MM/yyyy"
-                                locale="es"
-                                selectsStart
-                                startDate={startDate}
-                                endDate={endDate}
-                                customInput={<InputTag />}
-                            />
-                        </InputBox>
-                        <InputBox>
-                            <Details>Fecha fin de contrato:</Details>
-                            <DatePicker
-                                selected={endDate}
-                                onChange={(date) => setEndDate(date)}
-                                dateFormat="dd/MM/yyyy"
-                                locale="es"
-                                selectsEnd
-                                startDate={startDate}
-                                endDate={endDate}
-                                customInput={<InputTag />}
-                            />
                         </InputBox>
                     </UserDetails>
                     <ButtonGroup>
@@ -119,17 +78,6 @@ const Solicitud = () => {
                             <InputType type="file"></InputType>
                         </ButtonBox>
                     </ButtonGroup>
-                    <WrapperWarranty>
-                        <WarrantyBox>
-                            <TextWarranty>VALOR DE LA GARANTÍA:</TextWarranty>
-                            <InputWarranty type='text'></InputWarranty>
-                        </WarrantyBox>
-                    </WrapperWarranty>
-                    <WrapperText>
-                        <TextCuento to="/cosolicitante">
-                            CUENTO CON UN CO-SOLICITANTE
-                        </TextCuento>
-                    </WrapperText>
                     <ButtonGroup>
                     <ButtonBox>
                             <TextButton>ENVIAR</TextButton>
@@ -142,4 +90,4 @@ const Solicitud = () => {
     )
 }
 
-export default Solicitud
+export default CoSolicitante
