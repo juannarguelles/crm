@@ -7,13 +7,11 @@ import {
 const ModalOk = () => {
     return (
         <> 
-            
-                <Overlay>
+            <Overlay>
                     <ContainerModal>
                         <h1>Contenido</h1>
                     </ContainerModal>
-                </Overlay>
-            
+            </Overlay>    
         </>
     )
 }

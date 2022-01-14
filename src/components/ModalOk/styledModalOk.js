@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const Overlay = styled.div`
-    width: 100vh;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
