@@ -40,6 +40,8 @@ const Solicitud = () => {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
 
+    // Modal
+    const [stateModal, changeStateModal] = useState(false); 
 
     return (
         <Container>
@@ -56,27 +58,27 @@ const Solicitud = () => {
                     <UserDetails>
                         <InputBox>
                             <Details>Nombre/s:</Details>
-                            <InputTag type='text' placeholder=''></InputTag>
+                            <InputTag type='text' ></InputTag>
                         </InputBox>
                         <InputBox>
                             <Details>Apellido/s:</Details>
-                            <InputTag type='text' placeholder=''></InputTag>
+                            <InputTag type='text'></InputTag>
                         </InputBox>
                         <InputBox>
                             <Details>Correo Electrónico:</Details>
-                            <InputTag type='text' placeholder=''></InputTag>
+                            <InputTag type='text'></InputTag>
                         </InputBox>
                         <InputBox>
                             <Details>DNI:</Details>
-                            <InputTag type='text' placeholder=''></InputTag>
+                            <InputTag type='text'></InputTag>
                         </InputBox>
                         <InputBox>
                             <Details>Teléfono de contacto:</Details>
-                            <InputTag type='text' placeholder=''></InputTag>
+                            <InputTag type='text'></InputTag>
                         </InputBox>
                         <InputBox>
                             <Details>Domicilio de alquiler:</Details>
-                            <InputTag type='text' placeholder=''></InputTag>
+                            <InputTag type='text'></InputTag>
                         </InputBox>
                         <InputBox>
                             <Details>Fecha de inicio del contrato:</Details>
@@ -136,11 +138,18 @@ const Solicitud = () => {
                     <ButtonGroup>
                     <ButtonBox>
                             <TextButton>ENVIAR</TextButton>
-                            <InputType type="submit"></InputType>
+                            <InputType 
+                                // type="submit"
+                                onClick={()=> changeStateModal(!stateModal)} 
+                            >
+                            </InputType>
                     </ButtonBox>
                     </ButtonGroup>
                 </StyledForm>
-                <ModalOk/>
+                <ModalOk 
+                   estado = {stateModal}
+                   cambiarEstado = {changeStateModal}
+                />
             </Wrapper>
         </Container>
     )

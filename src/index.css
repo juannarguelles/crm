@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Agenda', sans-serif;
 }
 
 body {
@@ -14,3 +14,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  font-family: 'Agenda';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Agenda'), url('./fonts/AgendaLight.ttf') format('truetype');
+}

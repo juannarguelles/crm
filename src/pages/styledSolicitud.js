@@ -9,8 +9,8 @@ export const Container = styled.div`
    align-items: center;
    align-content: center;
    background: #FFF;
-   height: 100vh;
    color: #335998;
+   margin-top: 75px;
 `
 export const Wrapper = styled.div`
     max-width: 900px;
@@ -42,7 +42,7 @@ export const InputBox = styled.div`
     margin: 20px 0 12px 0;
     width: calc(100% / 2 - 20px);
 ` 
-export const Details = styled.span`
+export const Details = styled.label`
     margin-bottom: 10px;
     display: block;
 `
@@ -78,6 +78,7 @@ export const ButtonBox = styled.div`
     background: #0C5B9E;
     border-radius: 35px;
     position: relative;
+    height: 40px;
 `
 export const InputType = styled.input`
     position: absolute;
@@ -92,8 +93,8 @@ export const InputType = styled.input`
 `
 export const Text = styled.p`
     color: #fff;
-    margin-left: 20px;
-    text-align: center;
+    margin-left: 30px;
+    text-align: initial;
     font-size: 12px;
 `
 export const Clip = styled(AiOutlinePaperClip)`

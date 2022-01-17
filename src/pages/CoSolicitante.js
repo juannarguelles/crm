@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react';
 import {
     Container,
     Wrapper,
@@ -21,8 +21,13 @@ import {
     TextButton,
 } from './styledSolicitud';
 import Logo from '../images/nota.svg';
+import ModalOk from '../components/ModalOk/ModalOk';
 
 const CoSolicitante = () => {
+
+    // Modal
+    const [stateModal, changeStateModal] = useState(false); 
+
     return (
         <Container>
             <Wrapper>
@@ -81,10 +86,18 @@ const CoSolicitante = () => {
                     <ButtonGroup>
                     <ButtonBox>
                             <TextButton>ENVIAR</TextButton>
-                            <InputType type="submit"></InputType>
+                            <InputType 
+                                // type="submit"
+                                onClick={()=> changeStateModal(!stateModal)}
+                            >
+                            </InputType>
                     </ButtonBox>
                     </ButtonGroup>
                 </StyledForm>
+                <ModalOk 
+                   estado = {stateModal}
+                   cambiarEstado = {changeStateModal}
+                />
             </Wrapper>
         </Container>
     )

@@ -7,8 +7,8 @@ export const Container = styled.div`
    align-items: center;
    align-content: center;
    background: #FFF;
-   height: 100vh;
    color: #335998;
+   margin-top: 190px;
 `
 export const Wrapper = styled.div`
     max-width: 500px;
@@ -23,17 +23,26 @@ export const Title = styled.div`
     justify-content: center;
     padding: 16px 31px;
 `
+export const ContainerNota = styled.div`
+    height:100px;
+    width:100px;
+    background:#FFF;
+    -moz-border-radius:50px;
+    -webkit-border-radius:50px;
+    border-radius:50px;
+`
+
 export const Nota = styled.img`
-    width: 8%;
-    margin-right: 20px;
+    
 `
 export const Typography = styled.h1`
     font-size: 1.5rem;
-    margin-left: 20px;
 `
 export const GroupButton = styled.div`
     justify-content: center;
-    
+`
+export const TypographyButton = styled.h2`
+    font-size: 20px;
 `
 export const BoxButton = styled(Link)`
     text-decoration: none;

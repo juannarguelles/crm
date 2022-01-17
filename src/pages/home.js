@@ -4,10 +4,12 @@ import {
     Wrapper,
     Typography,
     Title,
+    ContainerNota,
     Nota,
     Button,
     GroupButton,
     BoxButton,
+    TypographyButton,
 } from './styledHome'
 import Img from '../images/nota.svg';
 import Calc from '../images/calculadora.svg';
@@ -24,20 +26,26 @@ const home = () => {
                 <GroupButton>
                     <BoxButton to="/simulador">
                         <Button>
-                            <Nota src={Calc} alt=''/>
-                            Simular el valor de mis garantías
+                            <ContainerNota>
+                                <Nota src={Calc} alt=''/>
+                            </ContainerNota>
+                            <TypographyButton>Simular el valor de mis garantías</TypographyButton>
                         </Button>
                     </BoxButton>
                     <BoxButton to="/solicitud">
                         <Button>
-                            <Nota src={Img} alt=''/>
-                            Generar solicitud de garantía
+                            <ContainerNota>
+                                <Nota src={Img} alt=''/>
+                            </ContainerNota>
+                            <TypographyButton>Generar solicitud de garantía</TypographyButton>
                         </Button>
                     </BoxButton>
                     <BoxButton to="/estado">
                         <Button>
-                            <Nota src={Est} alt=''/>
-                            Ver estado de solicitudes
+                            <ContainerNota>
+                                <Nota src={Est} alt=''/>
+                            </ContainerNota>
+                            <TypographyButton>Ver estado de solicitudes</TypographyButton>
                         </Button>
                     </BoxButton>
                 </GroupButton>
