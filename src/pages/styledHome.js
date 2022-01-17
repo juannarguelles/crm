@@ -49,7 +49,7 @@ export const BoxButton = styled(Link)`
 `
 export const Button = styled.button`
     background-color: #F9F9F9;
-	border-radius: 45px;
+	border-radius: 80px;
 	display:inline-block;
 	cursor: pointer;
 	color:#3579AE;
