@@ -24,38 +24,45 @@ export const Title = styled.div`
     padding: 16px 31px;
 `
 export const ContainerNota = styled.div`
-    height:100px;
-    width:100px;
+    width: 90px;
+    height: 90px;
     background:#FFF;
     -moz-border-radius:50px;
     -webkit-border-radius:50px;
     border-radius:50px;
+    -webkit-box-shadow: 1px 2px 15px 9px rgb(3 87 154 / 7%);
 `
 
 export const Nota = styled.img`
-    
+    width: 50px;
+`
+export const Nota1 = styled.img`
+    width: 50px;
+    margin-top: 20px;
 `
 export const Typography = styled.h1`
-    font-size: 1.5rem;
+    font-size: 30px;
+    padding: 15px;
 `
 export const GroupButton = styled.div`
     justify-content: center;
 `
 export const TypographyButton = styled.h2`
-    font-size: 20px;
+    font-size: 25px;
+    margin-left: 20px;
 `
 export const BoxButton = styled(Link)`
     text-decoration: none;
 `
 export const Button = styled.button`
-    background-color: #F9F9F9;
+    background-color: #F4F9FF;
 	border-radius: 80px;
 	display:inline-block;
 	cursor: pointer;
 	color:#3579AE;
 	font-size:17px;
-	padding: 30px 30px;
-    border: 1px solid rgba(1, 87, 154, 0.31);
+	padding: 15px 15px;
+    border: 0px solid rgba(1, 87, 154, 0.31);
     width: 100%;
     margin: 20px 0 12px 0;
     display: flex;
