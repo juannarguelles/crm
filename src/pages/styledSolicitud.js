@@ -59,7 +59,7 @@ export const Nota = styled.img`
 `
 export const Route = styled(Link)`
     width: 30px;
-    margin-top: 25px;
+    margin-top: 35px;
 `
 export const ArrowLeft = styled(AiOutlineArrowLeft)`
     display: block;

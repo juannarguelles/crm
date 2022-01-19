@@ -1,5 +1,5 @@
 import React from 'react'
-import { 
+import {
     Container,
     Wrapper,
     Hero,
@@ -18,9 +18,9 @@ import { Table, Column, HeaderCell, Cell } from 'rsuite-table';
 
 const Estado = () => {
     const dataList = [
-        { fecha: "1/12/2021", numero: '00.000.000', nombre: "Nombre/s y Apellido/s", estado: "PENDIENTE DE PAGO", },
-        { fecha: "1/12/2021", numero: '00.000.000', nombre: "Nombre/s y Apellido/s", estado: "RECHAZADA", },
-        { fecha: "1/12/2021", numero: '00.000.000', nombre: "Nombre/s y Apellido/s", estado: "APROBADO", }
+        { fecha: "1/12/2021", numero: '00.000.000', nombre: "Juan Rodriguez", estado: "PENDIENTE DE PAGO", },
+        { fecha: "3/09/2015", numero: '00.000.000', nombre: "Ivan Machado", estado: "RECHAZADA", },
+        { fecha: "6/05/2001", numero: '00.000.000', nombre: "Ricardo Gomez", estado: "APROBADO", }
       ];
 
     return (
@@ -39,27 +39,26 @@ const Estado = () => {
                         <IcoSearch/>
                     </Hero2>
                 </Hero>
-                
+
                 <Table data={dataList}>
-                    <Column>
+                    <Column width={80} style= {{color:"#01579A"}}>
                         <HeaderCell>FECHA</HeaderCell>
                         <Cell dataKey="fecha" />
                     </Column>
-                    <Column>
+                    <Column width={110} style= {{color:"#01579A"}}>
                         <HeaderCell>N° DE SOLICITUD</HeaderCell>
                         <Cell dataKey="numero" />
                     </Column>
-                    <Column>
-                        <HeaderCell>NOPMBRE DEL SOLICITANTE</HeaderCell>
+                    <Column width={300} style= {{color:"#01579A"}}>
+                        <HeaderCell>NOMBRE DEL SOLICITANTE</HeaderCell>
                         <Cell dataKey="nombre" />
                     </Column>
-                    <Column>
-                        <HeaderCell>ESTADOS</HeaderCell>
-                        <Cell dataKey="estado" />
-                    </Column> 
-                </Table>
-                
-            </Wrapper>
+                    <Column width={500} style= {{color:"#01579A"}}>
+                        <HeaderCell>ESTADO</HeaderCell>
+                        <Cell dataKey='estado'/>
+                    </Column>
+                </Table>               
+            </Wrapper>  
         </Container>
     )
 }

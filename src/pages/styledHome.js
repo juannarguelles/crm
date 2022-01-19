@@ -53,6 +53,9 @@ export const TypographyButton = styled.h2`
 `
 export const BoxButton = styled(Link)`
     text-decoration: none;
+    &:hover{
+        text-decoration: none;
+    }
 `
 export const Button = styled.button`
     background-color: #F4F9FF;
