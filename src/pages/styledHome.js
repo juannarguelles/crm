@@ -8,7 +8,8 @@ export const Container = styled.div`
    align-content: center;
    background: #FFF;
    color: #335998;
-   margin-top: 190px;
+   padding: 20px;
+   margin-top: 130px;
 `
 export const Wrapper = styled.div`
     max-width: 500px;

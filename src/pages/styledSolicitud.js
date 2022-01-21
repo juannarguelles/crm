@@ -10,7 +10,8 @@ export const Container = styled.div`
    align-content: center;
    background: #FFF;
    color: #335998;
-   margin-top: 75px;
+   margin-top: 60px;
+   margin-bottom: 60px;
 `
 export const Wrapper = styled.div`
     max-width: 900px;
@@ -119,7 +120,7 @@ export const TextWarranty = styled.span`
 `
 export const InputWarranty = styled.input`
     height: 45px;
-    border-radius: 54px;
+    border-radius: 0px 40px 40px 0px;
     border: 1px solid rgba(1,87,154,0.31);
     padding-left: 15px;
     outline: none;

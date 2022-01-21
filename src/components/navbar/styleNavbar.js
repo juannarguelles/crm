@@ -4,6 +4,7 @@ export const Container = styled.div`
     width: 100%;
     height: 100px;
     background-color: transparent;
+    padding: 20px;
 `
 
 export const Wrapper = styled.div`
