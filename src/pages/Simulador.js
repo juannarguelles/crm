@@ -35,9 +35,13 @@ import Logo from '../images/calculadora.svg'
 const Simulador = () => {
     const [pinta, setPinta] = useState(0.06); 
 
-    const [dato1, setDato1] = useState({dato1:0}); 
+    const [dato1, setDato1] = useState({
+        dato1:''
+    }); 
     
-    const [dato2, setDato2] = useState({dato2:0}); 
+    const [dato2, setDato2] = useState({
+        dato2:''
+    }); 
 
     const [duracion, setDuracion] = useState (36);
     
@@ -47,37 +51,63 @@ const Simulador = () => {
     const [resultado2, setResultado2] = useState(null);
     const [resultado3, setResultado3] = useState(null);
 
-    // Obtengo el valor del Alquiler
-    const handleChangeDato1 = (event) => {
-        setDato1({
-            ...dato1,
-            [event.target.name]: event.target.value
-        });
+    // Capturo el valor del alquiler
+    const handleChangeDato1 = (e) => {
+        setDato1({...dato1,
+            [e.target.name]: e.target.value,});
     }
     
-    // Obtengo el valor de las expensas
-    const handleChangeDato2 = (event) => {
+    // Capturo el valor de las expensas
+    const handleChangeDato2 = (e) => {
         setDato2({
             ...dato2,
-            [event.target.name]: event.target.value
-        });
+            [e.target.name]: e.target.value,});
     }
 
-    useEffect(()=>{ 
-           setResultado((parseInt(dato1.dato1) + parseInt(dato2.dato2))*pinta*duracion);
-    },[dato1,dato2,duracion])
+    // Actualizo el valor del resultado
+    
+    useEffect (()=>{
+        // Al dato1 y dato2 le saco los puntos para realizar la operacion matematica
+        let formatDato1 = (dato1.dato1);
+        let format1= formatDato1.replace(/\./g, '');
+    
+        let formatDato2 = (dato2.dato2);
+        let format2= formatDato2.replace(/\./g, '');
 
-    // Muestro resultado/contado/3/6
-    const onclikResultado = () => {
-         if(resultado != null && duracion != null){
+        setResultado((parseInt(format1) + parseInt(format2))*pinta*duracion)
+
+    },[dato1, dato2, duracion])
+
+    // Actualizo la cuenta en cuotas
+    useEffect(() =>{
+        if(resultado != null && duracion != null){
             const dato1 = resultado * 0.15
             setResultado1(resultado-dato1)
             setResultado2(resultado/3)
             setResultado3(resultado/6)
         }
+    },[resultado, duracion, []]);        
+
+    // Muestro resultado/contado/3/6
+    const onclikResultado = () => {
+        document.getElementById('valor').style.display = 'block';
     }
-    
-  
+
+    // Formateo resultado a pesos
+    function formatNumber (resultado) {
+        return new Intl.NumberFormat().format(resultado)
+    }
+
+    // Convierto el dato en entrada de Moneda 
+    const currencyMask = (e) => {
+        let value = e.target.value;
+        value = value.replace(/\./g, "");
+        value = value.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g,'$1.');
+        value = value.split('').reverse().join('').replace(/^[\.]/,'');
+        e.target.value= value;
+        return e;
+    }
+
     return (
         <Container>
             <Wrapper>
@@ -104,12 +134,12 @@ const Simulador = () => {
                 </ValueContainer>
                 <DivValor>
                     <DivForm id="resetform">
-                        <Money/>
-                        <InputValor type="text" placeholder='Valor del primer mes de alquiler' name="dato1" onChange={handleChangeDato1}/>
+                        <Money/> 
+                        <InputValor type="text" placeholder='Valor del primer mes de alquiler' name="dato1" onChange={(e) =>handleChangeDato1(currencyMask(e))}/>
                     </DivForm>   
                     <DivForm id="resetform2">
                         <Money/>
-                        <InputValor type="text" placeholder='Valor de expensas actuales' name="dato2" onChange={handleChangeDato2}/>
+                        <InputValor type="text" placeholder='Valor de expensas actuales' name="dato2" onChange={(e)=>handleChangeDato2(currencyMask(e))}/>
                     </DivForm>
                 </DivValor>
                 <RentalContainer>
@@ -124,29 +154,29 @@ const Simulador = () => {
                 </RentalContainer>
                 <RentalContainer>
                     <ButtonCalcular>
-                        <ButtonInput type="button" value="CALCULAR" onClick={()=>onclikResultado()} />  
+                        <ButtonInput type="button" value="CALCULAR" onClick={onclikResultado} />  
                     </ButtonCalcular>
                     <ButtonCalcular>
                         <BoxValor>
                             <TextP1>Valor:</TextP1>
-                            <ValorResultado>$ {resultado}</ValorResultado>
+                            <ValorResultado id='valor'>$ {formatNumber(resultado)}</ValorResultado>
                         </BoxValor>
                     </ButtonCalcular>
                 </RentalContainer>
                 <CuotasContainer>
                     <CuotasDiv>
                         <TextCuotas>Contado</TextCuotas>
-                        <ResultadoCuotas>$ {resultado1}</ResultadoCuotas>
+                        <ResultadoCuotas>$ {formatNumber(resultado1)}</ResultadoCuotas>
                         <ResultadoInteres>15% OFF</ResultadoInteres>
                     </CuotasDiv>
-                    <CuotasDiv>
+                    <CuotasDiv> 
                         <TextCuotas>3 cuotas de</TextCuotas>
-                        <ResultadoCuotas>$ {resultado2}</ResultadoCuotas>    
+                        <ResultadoCuotas> $ {formatNumber(resultado2)}</ResultadoCuotas>    
                         <ResultadoInteres>SIN INTERÉS</ResultadoInteres>
                     </CuotasDiv>
                     <CuotasDiv>
                         <TextCuotas>6 cuotas de</TextCuotas>
-                        <ResultadoCuotas>$ {resultado3}</ResultadoCuotas>
+                        <ResultadoCuotas>$ {formatNumber(resultado3)}</ResultadoCuotas>
                         <ResultadoInteres>SIN INTERÉS</ResultadoInteres>
                     </CuotasDiv>
                 </CuotasContainer>

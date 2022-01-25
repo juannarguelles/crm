@@ -81,6 +81,7 @@ export const DivForm = styled.form`
     width: 50%;
 `
 export const InputValor = styled.input`
+    margin: 0;
     background: #F2F2F5;
     border-radius: 9px;
     border: none;
@@ -89,6 +90,10 @@ export const InputValor = styled.input`
     font-size: 18px;
     padding-left: 40px;
     color: #9b9b9b;
+    ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    };
 `
 export const Money = styled(MdAttachMoney)`
     font-size: 25px;
@@ -128,6 +133,7 @@ export const ValorResultado = styled.span`
     color: #656565;
     font-size: 35px;
     padding-left: 10px;
+    display: none;
 `
 
 export const CuotasContainer = styled.div`
