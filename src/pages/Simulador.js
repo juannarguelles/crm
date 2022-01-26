@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import { 
     Container, 
     Wrapper,
@@ -35,18 +35,12 @@ import Logo from '../images/calculadora.svg'
 const Simulador = () => {
     const [pinta, setPinta] = useState(0.06); 
 
-    const [dato1, setDato1] = useState({
-        dato1:''
-    }); 
-    
-    const [dato2, setDato2] = useState({
-        dato2:''
-    }); 
+    const [dato1, setDato1] = useState({dato1:''}); 
+    const [dato2, setDato2] = useState({dato2:''}); 
 
     const [duracion, setDuracion] = useState (36);
     
     const [resultado, setResultado] = useState(null);
-
     const [resultado1, setResultado1] = useState(null);
     const [resultado2, setResultado2] = useState(null);
     const [resultado3, setResultado3] = useState(null);
@@ -69,10 +63,10 @@ const Simulador = () => {
     useEffect (()=>{
         // Al dato1 y dato2 le saco los puntos para realizar la operacion matematica
         let formatDato1 = (dato1.dato1);
-        let format1= formatDato1.replace(/\./g, '');
+        let format1= formatDato1.replace(/\./g, '') || 0;
     
         let formatDato2 = (dato2.dato2);
-        let format2= formatDato2.replace(/\./g, '');
+        let format2= formatDato2.replace(/\./g, '') || 0;
 
         setResultado((parseInt(format1) + parseInt(format2))*pinta*duracion)
 
@@ -88,9 +82,18 @@ const Simulador = () => {
         }
     },[resultado, duracion, []]);        
 
+    
+    const valor = useRef(null);
+    const contado = useRef(null);
+    const cuota3 = useRef(null);
+    const cuota6 = useRef(null);
+    
     // Muestro resultado/contado/3/6
     const onclikResultado = () => {
-        document.getElementById('valor').style.display = 'block';
+        valor.current.style.display = 'block';
+        contado.current.style.display = 'block';
+        cuota3.current.style.display = 'block';
+        cuota6.current.style.display = 'block';
     }
 
     // Formateo resultado a pesos
@@ -101,7 +104,7 @@ const Simulador = () => {
     // Convierto el dato en entrada de Moneda 
     const currencyMask = (e) => {
         let value = e.target.value;
-        value = value.replace(/\./g, "");
+        value = value.replace(/\D/g, "");
         value = value.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g,'$1.');
         value = value.split('').reverse().join('').replace(/^[\.]/,'');
         e.target.value= value;
@@ -159,24 +162,24 @@ const Simulador = () => {
                     <ButtonCalcular>
                         <BoxValor>
                             <TextP1>Valor:</TextP1>
-                            <ValorResultado id='valor'>$ {formatNumber(resultado)}</ValorResultado>
+                            <ValorResultado ref={valor}>$ {formatNumber(resultado)}</ValorResultado>
                         </BoxValor>
                     </ButtonCalcular>
                 </RentalContainer>
                 <CuotasContainer>
                     <CuotasDiv>
                         <TextCuotas>Contado</TextCuotas>
-                        <ResultadoCuotas>$ {formatNumber(resultado1)}</ResultadoCuotas>
+                        <ResultadoCuotas ref={contado}>$ {formatNumber(resultado1)}</ResultadoCuotas>
                         <ResultadoInteres>15% OFF</ResultadoInteres>
                     </CuotasDiv>
                     <CuotasDiv> 
                         <TextCuotas>3 cuotas de</TextCuotas>
-                        <ResultadoCuotas> $ {formatNumber(resultado2)}</ResultadoCuotas>    
+                        <ResultadoCuotas  ref={cuota3}> $ {formatNumber(resultado2)}</ResultadoCuotas>    
                         <ResultadoInteres>SIN INTERÉS</ResultadoInteres>
                     </CuotasDiv>
                     <CuotasDiv>
                         <TextCuotas>6 cuotas de</TextCuotas>
-                        <ResultadoCuotas>$ {formatNumber(resultado3)}</ResultadoCuotas>
+                        <ResultadoCuotas ref={cuota6}>$ {formatNumber(resultado3)}</ResultadoCuotas>
                         <ResultadoInteres>SIN INTERÉS</ResultadoInteres>
                     </CuotasDiv>
                 </CuotasContainer>

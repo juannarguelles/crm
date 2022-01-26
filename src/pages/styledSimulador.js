@@ -113,7 +113,12 @@ export const ButtonInput = styled.input`
     border-radius: 30px 30px 30px 30px;
     color: #fff;
     border: none;
-    padding: 18px 35px 18px 35px;
+    padding: 18px 55px 18px 55px;
+    margin-left: 50px;
+    margin-top: 20px;
+    &:hover{
+        box-shadow: 0px 0px 10px 0px #57c1e3;
+    }
 `
 
 export const BoxValor = styled.div`
@@ -124,8 +129,8 @@ export const BoxValor = styled.div`
     padding: 25px;
 `
 export const TextP1 = styled.p`
-    margin-top: 10px;
     font-size: 30px;
+    margin-top: 10px;
 `
 
 export const ValorResultado = styled.span`
@@ -168,6 +173,7 @@ export const ResultadoCuotas = styled.div`
     font-size: 28px;
     color: #858585;
     margin-bottom: 20px;
+    display: none;
 `
 export const ResultadoInteres = styled.div`
     margin: 0px 50px 0px 50px;
