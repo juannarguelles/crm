@@ -28,7 +28,6 @@ import {
     TextCuotas,
     ResultadoCuotas,
     ResultadoInteres,
-    ButtonContainer,
 } from './styledSimulador'
 import Logo from '../images/calculadora.svg'
 
@@ -45,6 +44,9 @@ const Simulador = () => {
     const [resultado2, setResultado2] = useState(null);
     const [resultado3, setResultado3] = useState(null);
 
+
+    //
+
     // Capturo el valor del alquiler
     const handleChangeDato1 = (e) => {
         setDato1({...dato1,
@@ -59,7 +61,6 @@ const Simulador = () => {
     }
 
     // Actualizo el valor del resultado
-    
     useEffect (()=>{
         // Al dato1 y dato2 le saco los puntos para realizar la operacion matematica
         let formatDato1 = (dato1.dato1);
@@ -82,7 +83,6 @@ const Simulador = () => {
         }
     },[resultado, duracion, []]);        
 
-    
     const valor = useRef(null);
     const contado = useRef(null);
     const cuota3 = useRef(null);
@@ -95,6 +95,7 @@ const Simulador = () => {
         cuota3.current.style.display = 'block';
         cuota6.current.style.display = 'block';
     }
+
 
     // Formateo resultado a pesos
     function formatNumber (resultado) {
@@ -124,8 +125,8 @@ const Simulador = () => {
                         <TextP>Seleccioná el tipo de alquiler:</TextP>
                     </RentalP>
                     <DivButton>
-                        <InputRental type="button" id="vivienda-1" value="VIVIENDA" onClick={()=>setPinta(0.6)}/>
-                        <InputRental type="button" id="comercial-1" value="COMERCIAL" onClick={()=>setPinta(0.6)}/>
+                        <InputRental type="button" value="VIVIENDA" onClick={()=>setPinta(null)}/>
+                        <InputRental type="button" value="COMERCIAL" onClick={()=>setPinta(null)}/>
                     </DivButton>
                 </RentalContainer>
                 <ValueContainer>
@@ -183,9 +184,6 @@ const Simulador = () => {
                         <ResultadoInteres>SIN INTERÉS</ResultadoInteres>
                     </CuotasDiv>
                 </CuotasContainer>
-                <ButtonContainer>
-
-                </ButtonContainer>
             </Wrapper>  
         </Container>
     )

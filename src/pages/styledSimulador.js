@@ -53,14 +53,16 @@ export const DivButton = styled.div`
 `
 export const InputRental = styled.input`
     border-radius: 50px;
-    border: 1.2px solid #1668A9;
     width: 143px;
     height: 40px;
     left: 973px;
     top: 521px;
     box-sizing: border-box;
-    &:hover{
-        background: rgba(3, 87, 154, 0.2);
+    background-color: #FFF;
+    border: 1px solid #1668A9;
+    border-width: 1px !important;
+    :hover{
+        background-color: rgb(205, 221, 235);
     }
 `
 export const ValueContainer = styled.div`
@@ -183,8 +185,4 @@ export const ResultadoInteres = styled.div`
     color: #fff;
     width: 50%;
     text-align: center;
-`
-
-export const ButtonContainer = styled.div`
-    display: flex;
 `
